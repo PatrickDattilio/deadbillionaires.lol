@@ -1,5 +1,6 @@
 <html>
  <p><a href="https://forms.gle/UaKfvUCyQC6pGzrw5">Submit a win</a></p>
+
   <table>
     <tr>
       <th>Billionaire</th>
@@ -42,5 +43,22 @@
       <td>old lol</td>
     </tr>
   </table> 
+
+ 
+<table>
+  {% for row in site.data.baddies %}
+    {% if forloop.first %}
+    <tr>
+      {% for pair in row %}
+        <th>{{ pair[0] }}</th>
+      {% endfor %}
+    </tr>
+    {% endif %}
+
+    {% tablerow pair in row %}
+      {{ pair[1] }}
+    {% endtablerow %}
+  {% endfor %}
+</table>
   <p><a href="https://github.com/wacomd/deadbillionaires.lol">Help contribute</a></p>
 </html>
